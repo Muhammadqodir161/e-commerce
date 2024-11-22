@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Library{% endblock %}
+
+{% block content %}
+    <h1>Are you sure to delete this {{ book.title }}</h1>
+    <div class="btn-container">
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-danger btn-yes" type="submit">Yes, I'm sure</button>
+        </form>
+        <form method="get">
+            <a href="{% url 'list' %}" class="btn btn-primary btn-no">No, take me back</a>
+        </form>
+    </div>
+{% endblock %}
